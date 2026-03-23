@@ -10,6 +10,15 @@ description: >
 
 Idiomatic Go patterns and best practices for building robust, efficient, and maintainable applications.
 
+## When to Activate
+
+- Writing new Go code
+- Reviewing or auditing existing Go code
+- Refactoring Go code (especially code that looks like Java/Spring Boot patterns in Go)
+- Designing Go packages, modules, or APIs
+- Choosing between stdlib and third-party libraries
+- Any question about Go project structure, error handling, concurrency, or testing
+
 ## Core Principles
 
 ### 1. Clear is Better than Clever

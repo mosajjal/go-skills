@@ -11,6 +11,15 @@ description: >
 
 Idiomatic patterns and best practices for building robust, configuration-driven command-line interfaces using Cobra and Viper.
 
+## When to Activate
+
+- Writing a new CLI application in Go
+- Adding commands, subcommands, or flags to an existing Cobra application
+- Integrating Viper for configuration file, environment variable, or flag management
+- Reviewing or refactoring CLI code that uses Cobra and/or Viper
+- Designing the command structure or configuration schema for a CLI tool
+- Testing CLI commands
+
 ## Core Philosophy
 
 ### The Command-First Architecture
