@@ -1,8 +1,8 @@
 {
   "name": "go-skills",
   "owner": {
-    "name": "mosajjal",
-    "email": "ali@mosajjal.com"
+    "name": "Steve Francia",
+    "email": "steve.francia@gmail.com"
   },
   "metadata": {
     "description": "Authoritative Go skills for Claude Code — written by spf13 (creator of Cobra, Viper, Hugo). Covers idiomatic Go patterns and CLI architecture.",
