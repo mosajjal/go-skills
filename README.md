@@ -35,38 +35,30 @@ The core language idioms. This covers fundamental Go philosophy, proper interfac
 
 The definitive guide to building modern command-line applications. This covers the "Command-First" architecture, 12-factor configuration, and how to structure your application using Cobra and Viper exactly as they were intended to be used.
 
-## Claude Code Marketplace
+## Installation
 
-Browse and install skills via the included web marketplace:
+### Claude Code (via marketplace)
 
-```bash
-cd marketplace
-go run .
-# open http://localhost:8080
+Add this repo as a Claude Code marketplace, then install individual skills:
+
 ```
-
-The marketplace lists all skills, shows full documentation, and provides one-click install commands for Claude Code (`~/.claude/skills/`).
-
-### Manual Installation (Claude Code)
-
-```bash
-# from the repo root
-mkdir -p ~/.claude/skills/go          && ln -sf "$PWD/go/SKILL.md"          ~/.claude/skills/go/SKILL.md
-mkdir -p ~/.claude/skills/cobra-viper && ln -sf "$PWD/cobra-viper/SKILL.md"  ~/.claude/skills/cobra-viper/SKILL.md
+/plugin marketplace add mosajjal/go-skills
+/plugin install go@go-skills
+/plugin install cobra-viper@go-skills
 ```
 
 ### Other AI Agents (Copilot, etc.)
 
 ```powershell
 # Windows — directory junction (run as Administrator)
-New-Item -ItemType Junction -Path "$env:USERPROFILE\.agents\skills\go" -Target "$PWD\go"
-New-Item -ItemType Junction -Path "$env:USERPROFILE\.agents\skills\cobra-viper" -Target "$PWD\cobra-viper"
+New-Item -ItemType Junction -Path "$env:USERPROFILE\.agents\skills\go" -Target "$PWD\go\skills\go"
+New-Item -ItemType Junction -Path "$env:USERPROFILE\.agents\skills\cobra-viper" -Target "$PWD\cobra-viper\skills\cobra-viper"
 ```
 
 ```bash
 # macOS / Linux
-ln -s "$PWD/go"          "$HOME/.agents/skills/go"
-ln -s "$PWD/cobra-viper" "$HOME/.agents/skills/cobra-viper"
+ln -s "$PWD/go/skills/go"                   "$HOME/.agents/skills/go"
+ln -s "$PWD/cobra-viper/skills/cobra-viper" "$HOME/.agents/skills/cobra-viper"
 ```
 
 ## The Golden Rule
