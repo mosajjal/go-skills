@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Claude Code Skill Marketplace</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:#0d1117;color:#e6edf3;min-height:100vh}
+header{border-bottom:1px solid #21262d;padding:1.25rem 2rem;display:flex;align-items:center;gap:1rem}
+header svg{color:#d29922}
+header h1{font-size:1.1rem;font-weight:600;letter-spacing:.01em}
+header span{color:#8b949e;font-size:.85rem}
+.hero{padding:3rem 2rem 2rem;text-align:center;max-width:700px;margin:0 auto}
+.hero h2{font-size:2rem;font-weight:700;margin-bottom:.75rem;background:linear-gradient(135deg,#e6edf3,#8b949e);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hero p{color:#8b949e;line-height:1.6;margin-bottom:1.5rem}
+.search-wrap{max-width:480px;margin:0 auto}
+.search-wrap form{display:flex;gap:.5rem}
+.search-wrap input{flex:1;background:#161b22;border:1px solid #30363d;color:#e6edf3;border-radius:6px;padding:.5rem .75rem;font-size:.95rem;outline:none}
+.search-wrap input:focus{border-color:#388bfd}
+.search-wrap button{background:#238636;border:none;color:#fff;padding:.5rem 1rem;border-radius:6px;cursor:pointer;font-size:.9rem}
+.search-wrap button:hover{background:#2ea043}
+.count{text-align:center;color:#8b949e;font-size:.85rem;margin:1.5rem 0 .5rem}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:1rem;padding:0 2rem 3rem;max-width:1200px;margin:0 auto}
+.card{background:#161b22;border:1px solid #21262d;border-radius:10px;padding:1.25rem;transition:border-color .15s}
+.card:hover{border-color:#388bfd}
+.card-header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:.75rem}
+.card-name{font-size:1rem;font-weight:600;color:#e6edf3}
+.badge{background:#21262d;border:1px solid #30363d;color:#8b949e;font-size:.7rem;padding:.15rem .5rem;border-radius:12px;white-space:nowrap}
+.card-desc{color:#8b949e;font-size:.85rem;line-height:1.55;margin-bottom:1rem;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.card-footer{display:flex;gap:.5rem}
+.btn{display:inline-flex;align-items:center;gap:.35rem;padding:.4rem .75rem;border-radius:6px;font-size:.8rem;text-decoration:none;border:none;cursor:pointer;transition:background .15s}
+.btn-primary{background:#238636;color:#fff}
+.btn-primary:hover{background:#2ea043}
+.btn-secondary{background:#21262d;color:#e6edf3;border:1px solid #30363d}
+.btn-secondary:hover{background:#30363d}
+.empty{text-align:center;color:#8b949e;padding:4rem;grid-column:1/-1}
+</style>
+</head>
+<body>
+<header>
+<svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+<h1>Claude Code Skill Marketplace</h1>
+<span>go-skills</span>
+</header>
+
+<div class="hero">
+  <h2>Discover & Install Skills</h2>
+  <p>Authoritative first-principles skills for Claude Code. Written by the people who built the tools.</p>
+  <div class="search-wrap">
+    <form method="get">
+      <input name="q" value="{{.Query}}" placeholder="Search skills…" autofocus>
+      <button type="submit">Search</button>
+    </form>
+  </div>
+</div>
+
+{{$n := len .Skills}}
+<p class="count">{{$n}} skill{{if ne $n 1}}s{{end}}{{if .Query}} matching <em>&#34;{{.Query}}&#34;</em>{{end}}</p>
+
+<div class="grid">
+{{range .Skills}}
+<div class="card">
+  <div class="card-header">
+    <span class="card-name">{{.Name}}</span>
+    <span class="badge">SKILL</span>
+  </div>
+  <p class="card-desc">{{.Description}}</p>
+  <div class="card-footer">
+    <a class="btn btn-primary" href="/skill/{{.Dir}}">View</a>
+    <a class="btn btn-secondary" href="/skill/{{.Dir}}#install">Install</a>
+  </div>
+</div>
+{{else}}
+<div class="empty">No skills found.</div>
+{{end}}
+</div>
+</body>
+</html>

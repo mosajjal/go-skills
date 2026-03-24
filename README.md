@@ -35,9 +35,27 @@ The core language idioms. This covers fundamental Go philosophy, proper interfac
 
 The definitive guide to building modern command-line applications. This covers the "Command-First" architecture, 12-factor configuration, and how to structure your application using Cobra and Viper exactly as they were intended to be used.
 
-## Installation
+## Claude Code Marketplace
 
-Place the skills where your AI coding agent can find them:
+Browse and install skills via the included web marketplace:
+
+```bash
+cd marketplace
+go run .
+# open http://localhost:8080
+```
+
+The marketplace lists all skills, shows full documentation, and provides one-click install commands for Claude Code (`~/.claude/skills/`).
+
+### Manual Installation (Claude Code)
+
+```bash
+# from the repo root
+mkdir -p ~/.claude/skills/go          && ln -sf "$PWD/go/SKILL.md"          ~/.claude/skills/go/SKILL.md
+mkdir -p ~/.claude/skills/cobra-viper && ln -sf "$PWD/cobra-viper/SKILL.md"  ~/.claude/skills/cobra-viper/SKILL.md
+```
+
+### Other AI Agents (Copilot, etc.)
 
 ```powershell
 # Windows — directory junction (run as Administrator)
@@ -46,12 +64,10 @@ New-Item -ItemType Junction -Path "$env:USERPROFILE\.agents\skills\cobra-viper" 
 ```
 
 ```bash
-# macOS / Linux — symlink
+# macOS / Linux
 ln -s "$PWD/go"          "$HOME/.agents/skills/go"
 ln -s "$PWD/cobra-viper" "$HOME/.agents/skills/cobra-viper"
 ```
-
-After linking, restart VS Code. The skills will appear in the Copilot customizations index and be invoked automatically when relevant Go or CLI work is detected.
 
 ## The Golden Rule
 
